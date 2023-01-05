@@ -5,6 +5,8 @@
  */
 package TicTacToeCommon.models.requests;
 
-public class OnlinePlayersRequest {
+import TicTacToeCommon.models.base.RemoteRequest;
+
+public class OnlinePlayersRequest implements RemoteRequest {
     
 }
