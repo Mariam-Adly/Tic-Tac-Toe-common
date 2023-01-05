@@ -1,7 +1,6 @@
 package TicTacToeCommon.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,16 +9,15 @@ import java.util.Date;
  *  @version 1.0
  *  @since 1.0
  */
-public class User implements Serializable {
+public class UserModel implements Serializable {
 
     private int id;
     private String name;
     private byte[] image;
-    private final Date createdAt = new Date();
-    private ArrayList<Object> gamesPlayed; //TODO change Type parameter Object to Game
+    private Date createdAt;
 
     /** Default constructor */
-    public User(){}
+    public UserModel(){}
 
     /**
      * Creates a user with the specified id, name, image (if found), the exact date the account was created,
@@ -27,13 +25,21 @@ public class User implements Serializable {
      * @param id The user's ID.
      * @param name The user's name.
      * @param image The user's image.
-     * @param gamesPlayed A list of the user's previously played games.
+     * @param createdAt The exact time this user instance was created in the database.
      */
-    public User(int id, String name, byte[] image, ArrayList<Object> gamesPlayed) {
+    public UserModel(int id, String name, byte[] image, Date createdAt) {
         this.id = id;
         this.name = name;
         this.image = image;
-        this.gamesPlayed = gamesPlayed;
+        this.createdAt = createdAt;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -52,15 +58,9 @@ public class User implements Serializable {
         this.image = image;
     }
 
+    public void setCreatedAt(Date createdAt){this.createdAt = createdAt;}
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    public ArrayList<Object> getGamesPlayed() {
-        return gamesPlayed;
-    }
-
-    public void setGamesPlayed(ArrayList<Object> gamesPlayed) {
-        this.gamesPlayed = gamesPlayed;
-    }
 }

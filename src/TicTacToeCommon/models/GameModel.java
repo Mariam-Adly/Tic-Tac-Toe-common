@@ -2,16 +2,16 @@
 package TicTacToeCommon.models;
 
 
-public class Game {
+public class GameModel {
     private String gameId;
     private String player1Id;
     private String player2Id;
    
    
-     public Game() {
+     public GameModel() {
     }
      
-    public Game(String gameId, String player1Id, String player2Id) {
+    public GameModel(String gameId, String player1Id, String player2Id) {
         this. gameId= gameId;
         this.player1Id= player1Id;
         this.player2Id= player2Id;

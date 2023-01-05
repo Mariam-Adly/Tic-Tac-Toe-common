@@ -8,28 +8,28 @@ import java.util.Date;
  * @version 1.0
  * @since 1.0
  * */
-public class Move {
+public class MoveModel {
 
     private int playerId;
     private int gameId;
     private byte spacePosition;
-    private final Date createdAt = new Date();
+    private Date createdAt;
 
     /** Default Constructor */
-    public Move(){}
+    public MoveModel(){}
 
     /**
      * Creates a single a move associated with a player's ID, a game's ID, and in a certain space position on the grid.
      * @param playerId The ID of the player that took the move.
      * @param gameId the ID of the game where this move was taken.
      * @param spacePosition The exact position where the move was taken on the grid.
+     * @param createdAt The exact time this move was taken.
      * */
-    public Move(int playerId, int gameId, byte spacePosition) {
+    public MoveModel(int playerId, int gameId, byte spacePosition,Date createdAt) {
         this.playerId = playerId;
         this.gameId = gameId;
-        //TODO Check whether the spacePosition given was between the correct upper and lower bounds.
-        //TODO may throw an IllegalSpacePositionException if an incorrect spacePosition was given.
         this.spacePosition = spacePosition;
+        this.createdAt = createdAt;
     }
 
     public int getPlayerId() {
@@ -52,12 +52,15 @@ public class Move {
         return spacePosition;
     }
 
-    //TODO Check whether the spacePosition given was correct or not.
     public void setSpacePosition(byte spacePosition) {
         this.spacePosition = spacePosition;
     }
 
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

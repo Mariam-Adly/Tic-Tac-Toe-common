@@ -1,6 +1,6 @@
 package TicTacToeCommon.models.responses;
 
-import TicTacToeCommon.models.User;
+import TicTacToeCommon.models.UserModel;
 import TicTacToeCommon.models.base.RemoteResponse;
 
 
@@ -10,18 +10,11 @@ import TicTacToeCommon.models.base.RemoteResponse;
  * @version 1.0
  * @since 1.0
  * */
-public class SignUpResponse extends RemoteResponse<User> {
+public class SignUpResponse extends RemoteResponse<UserModel> {
 
     /** Default Constructor */
     public SignUpResponse(){}
 
-    /*
-        TODO
-         This constructor redundant but was only added for clarity.
-         If the response is rejected the no-arg constructor should be used.
-         If the response is accepted the 2-args constructor should be used.
-         May remove this constructor later on.
-    *  */
     /**
      * Creates a sign-up response to the client with the specified status of the response.
      * @param status The status of the response stating the acceptance or the rejection of the response.
@@ -35,7 +28,7 @@ public class SignUpResponse extends RemoteResponse<User> {
      * @param status The status of the response stating the acceptance or the rejection of the response.
      * @param user The user object that's supposed to be sent to the client.
      * */
-    public SignUpResponse(boolean status, User user){
+    public SignUpResponse(boolean status, UserModel user){
         super(status,user);
     }
 }
