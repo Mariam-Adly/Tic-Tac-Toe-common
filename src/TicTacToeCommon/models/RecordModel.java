@@ -11,13 +11,8 @@ public class RecordModel {
     private String playerTwoId;
 
     public RecordModel() {
-        gameId=null;
-        playerOneId=null;
-        playerTwoId=null;
     }
-    
-    
-
+   
     public RecordModel(String gameId, String playerOneId, String playerTwoId) {
         this.gameId = gameId;
         this.playerOneId = playerOneId;

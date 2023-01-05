@@ -3,12 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TicTacToeCommon.requests;
+package TicTacToeCommon.models.requests;
 
-/**
- *
- * @author ITI
- */
 public class OnlinePlayersRequest {
     
 }

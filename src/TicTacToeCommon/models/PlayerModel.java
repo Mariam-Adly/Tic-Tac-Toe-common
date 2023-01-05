@@ -10,8 +10,7 @@ public class PlayerModel {
     private String id;
 
     public PlayerModel() {
-        name=null;
-        id=null;
+
     }
 
     public PlayerModel(String name, String id) {
