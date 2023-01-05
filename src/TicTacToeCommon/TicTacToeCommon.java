@@ -6,50 +6,55 @@
 package TicTacToeCommon;
 
 import TicTacToeCommon.models.base.RemoteMessage;
+import TicTacToeCommon.models.base.RemoteSendable;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintStream;
-import java.io.Serializable;
-
 
 public class TicTacToeCommon {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
+     * @throws java.lang.ClassNotFoundException
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        serialize();
         deserialize();
     }
 
     private static void deserialize() throws IOException, ClassNotFoundException {
-        ObjectInputStream oin = new ObjectInputStream(new FileInputStream("remotemessage.bin"));
-        RemoteMessage message;
-        while ((message = (RemoteMessage) oin.readObject()) != null) {
-            if (message.getData() instanceof OurData) {
-                System.out.println("got data " + ((OurData)message.getData()).i);
+        try (ObjectInputStream oin = new ObjectInputStream(new FileInputStream("remotemessage.bin"))) {
+            RemoteMessage<RemoteSendable> message;
+            while ((message = RemoteMessage.readFrom(oin)) != null) {
+                OurData data = message.getMessage(OurData.class);
+                if (data != null) {
+                    System.out.println("got data " + data.i);
+                }
             }
         }
     }
 
     private static void serialize() throws IOException {
-        RemoteMessage<OurData> message = new RemoteMessage<>(new OurData(1024));
-        ObjectOutputStream oout = new ObjectOutputStream(new PrintStream("remotemessage.bin"));
-        oout.writeObject(message);
-        oout.flush();
-        oout.close();
+        RemoteMessage<OurData> message = new RemoteMessage<>(new OurData(91823));
+        try (ObjectOutputStream oout = new ObjectOutputStream(new PrintStream("remotemessage.bin"))) {
+            message.writeInot(oout);
+        }
     }
-    
-    static class OurData implements Serializable {
-        static final long serialVersionUID = 40L;
-        
+
+    static class OurData implements RemoteSendable {
+
+        static final long serialVersionUID = 42L;
+
         private int i;
-        
-        public OurData() {}
-        
+
+        public OurData() {
+        }
+
         public OurData(int i) {
             this.i = i;
-        } 
+        }
     }
 }
