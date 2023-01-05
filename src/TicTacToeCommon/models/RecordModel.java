@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TicTacToeCommon.models;
 
 public class RecordModel {
+
     private String gameId;
     private String playerOneId;
     private String playerTwoId;
 
     public RecordModel() {
     }
-   
+
     public RecordModel(String gameId, String playerOneId, String playerTwoId) {
         this.gameId = gameId;
         this.playerOneId = playerOneId;
@@ -42,5 +38,5 @@ public class RecordModel {
     public String getPlayerTwoId() {
         return playerTwoId;
     }
-    
+
 }
