@@ -4,12 +4,14 @@
  */
 package TicTacToeCommon.models.base;
 
+import java.io.Serializable;
+
 /**
  *
  * @author m-essam
  * @param <Data>
  */
-public abstract class RemoteResponse<Data extends RemoteSendable> implements RemoteSendable {
+public abstract class RemoteResponse<Data extends Serializable> implements RemoteSendable {
     protected boolean status;
     protected Data data;
     
