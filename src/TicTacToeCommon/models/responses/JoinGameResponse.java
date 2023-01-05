@@ -1,8 +1,9 @@
 package TicTacToeCommon.models.responses;
 
+import TicTacToeCommon.models.GameOfferAnswer;
 import TicTacToeCommon.models.base.RemoteResponse;
 
-public class JoinGameResponse extends RemoteResponse<Boolean> {
+public class JoinGameResponse extends RemoteResponse<GameOfferAnswer> {
 
     public JoinGameResponse() {
     }
@@ -11,7 +12,7 @@ public class JoinGameResponse extends RemoteResponse<Boolean> {
         super(status);
     }
 
-    public JoinGameResponse(boolean status, Boolean data) {
+    public JoinGameResponse(boolean status, GameOfferAnswer data) {
         super(status, data);
     }
 

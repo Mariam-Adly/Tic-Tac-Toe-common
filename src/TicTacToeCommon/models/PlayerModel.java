@@ -13,7 +13,7 @@ public class PlayerModel {
         this.name = name;
         this.id = id;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -23,10 +23,10 @@ public class PlayerModel {
     }
 
     public void setId(String id) {
-        this.id=id;
+        this.id = id;
     }
-    
+
     public String getId() {
         return id;
-    }  
+    }
 }

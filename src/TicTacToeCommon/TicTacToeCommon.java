@@ -40,7 +40,7 @@ public class TicTacToeCommon {
     private static void serialize() throws IOException {
         RemoteMessage<OurData> message = new RemoteMessage<>(new OurData(91823));
         try (ObjectOutputStream oout = new ObjectOutputStream(new PrintStream("remotemessage.bin"))) {
-            message.writeInot(oout);
+            message.writeInto(oout);
         }
     }
 

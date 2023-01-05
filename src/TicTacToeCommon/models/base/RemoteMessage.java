@@ -41,7 +41,7 @@ public class RemoteMessage<Message extends RemoteSendable> implements RemoteSend
         return null;
     }
 
-    public void writeInot(ObjectOutput output) throws IOException {
+    public void writeInto(ObjectOutput output) throws IOException {
         this.sentAt = new Date();
         output.writeObject(this);
     }
