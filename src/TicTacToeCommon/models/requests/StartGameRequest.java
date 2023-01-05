@@ -1,18 +1,17 @@
-
 package TicTacToeCommon.models.requests;
 
 import TicTacToeCommon.models.base.RemoteRequest;
 
+public class StartGameRequest implements RemoteRequest {
 
-public class StartRequest implements RemoteRequest  {
     private String playerId;
 
-    public StartRequest(){
+    public StartGameRequest() {
     }
-    public StartRequest(String playerId) {
+
+    public StartGameRequest(String playerId) {
         this.playerId = playerId;
     }
-    
 
     public String getPlayerId() {
         return playerId;
@@ -22,4 +21,3 @@ public class StartRequest implements RemoteRequest  {
         this.playerId = playerId;
     }
 }
-

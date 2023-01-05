@@ -1,4 +1,3 @@
-
 package TicTacToeCommon.models;
 
 
@@ -40,9 +39,5 @@ public class GameModel {
     public String getPlayer2Id() {
         return player2Id;
     }
-    
- 
 
-    
-  
 }
