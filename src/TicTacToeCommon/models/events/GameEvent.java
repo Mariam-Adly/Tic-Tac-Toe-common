@@ -1,6 +1,7 @@
 package TicTacToeCommon.models.events;
 
 import TicTacToeCommon.models.GameModel;
+import TicTacToeCommon.models.MoveModel;
 import TicTacToeCommon.models.PlayerModel;
 import TicTacToeCommon.models.base.RemoteEvent;
 
@@ -25,6 +26,7 @@ public abstract class GameEvent implements RemoteEvent {
 
     public static class Started extends GameEvent {
 
+        static final long serialVersionUID = 42L;
         private GameModel game;
         private PlayerModel player;
 
@@ -62,6 +64,8 @@ public abstract class GameEvent implements RemoteEvent {
 
     public static class Won extends GameEvent {
 
+        static final long serialVersionUID = 42L;
+
         public Won() {
             super();
         }
@@ -72,6 +76,8 @@ public abstract class GameEvent implements RemoteEvent {
     }
 
     public static class Lost extends GameEvent {
+
+        static final long serialVersionUID = 42L;
 
         public Lost() {
             super();
@@ -84,6 +90,8 @@ public abstract class GameEvent implements RemoteEvent {
 
     public static class Withdraw extends GameEvent.Won {
 
+        static final long serialVersionUID = 42L;
+
         public Withdraw() {
             super();
         }
@@ -93,12 +101,25 @@ public abstract class GameEvent implements RemoteEvent {
         }
     }
 
-    // TODO change Object to Move
-    
+    public static class Ended extends GameEvent {
+
+        static final long serialVersionUID = 42L;
+
+        public Ended() {
+            super();
+        }
+
+        public Ended(String gameId) {
+            super(gameId);
+        }
+    }
+
     public static class Moved extends GameEvent {
 
+        static final long serialVersionUID = 42L;
+        
         private String playerId;
-        private Object move;
+        private MoveModel move;
 
         public Moved() {
             super();
@@ -108,7 +129,7 @@ public abstract class GameEvent implements RemoteEvent {
             super(gameId);
         }
 
-        public Moved(String gameId, String playerId, Object move) {
+        public Moved(String gameId, String playerId, MoveModel move) {
             super(gameId);
             this.playerId = playerId;
             this.move = move;
@@ -126,7 +147,7 @@ public abstract class GameEvent implements RemoteEvent {
             return move;
         }
 
-        public void setMove(Object move) {
+        public void setMove(MoveModel move) {
             this.move = move;
         }
 
