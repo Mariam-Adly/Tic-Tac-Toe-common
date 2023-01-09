@@ -3,7 +3,7 @@ package TicTacToeCommon.models.requests;
 import TicTacToeCommon.models.base.RemoteRequest;
 
 public class StartGameRequest implements RemoteRequest {
-
+   static final long serialVersionUID = 42L;
     private String playerId;
 
     public StartGameRequest() {

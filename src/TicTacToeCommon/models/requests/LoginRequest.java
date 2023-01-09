@@ -4,6 +4,7 @@ import TicTacToeCommon.models.base.RemoteRequest;
 
 public class LoginRequest implements RemoteRequest {
 
+    static final long serialVersionUID = 42L;
     private String username;
     private String password;
 

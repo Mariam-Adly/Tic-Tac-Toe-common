@@ -6,6 +6,7 @@ import TicTacToeCommon.models.base.RemoteRequest;
 
 public class GameMoveRequest implements RemoteRequest {
 
+    static final long serialVersionUID = 42L;
     private String gameId;
     private Object move;
 

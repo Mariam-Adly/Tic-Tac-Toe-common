@@ -5,7 +5,8 @@ import TicTacToeCommon.models.base.RemoteResponse;
 // TODO change Boolean to MoveModel
 
 public class GameMoveResponse extends RemoteResponse<Boolean> {
-    
+   
+    static final long serialVersionUID = 42L;
     public GameMoveResponse() {
     }
 

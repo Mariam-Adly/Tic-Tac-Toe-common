@@ -12,6 +12,7 @@ import java.io.Serializable;
  */
 public class GameOfferAnswer implements Serializable {
 
+    static final long serialVersionUID = 42L;
     private Boolean wantToPlay;
     private String opponentId;
 

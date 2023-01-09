@@ -4,6 +4,7 @@ import TicTacToeCommon.models.base.RemoteRequest;
 
 public class GameWithdrawRequest implements RemoteRequest {
 
+    static final long serialVersionUID = 42L;
     private String gameId;
 
     public GameWithdrawRequest() {

@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class UserModel implements Serializable {
 
+    static final long serialVersionUID = 42L;
     private String id;
     private String name;
     private byte[] image;

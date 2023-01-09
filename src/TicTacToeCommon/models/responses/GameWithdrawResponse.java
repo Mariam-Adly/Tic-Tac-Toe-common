@@ -3,7 +3,7 @@ package TicTacToeCommon.models.responses;
 import TicTacToeCommon.models.base.RemoteResponse;
 
 public class GameWithdrawResponse extends RemoteResponse<String> {
-    
+    static final long serialVersionUID = 42L;
     public GameWithdrawResponse() {
     }
 
