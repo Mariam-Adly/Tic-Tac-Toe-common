@@ -5,6 +5,7 @@ import TicTacToeCommon.models.base.RemoteRequest;
 
 public class JoinGameRequest implements RemoteRequest {
 
+    static final long serialVersionUID = 42L;
     private PlayerModel player;
 
     public JoinGameRequest() {

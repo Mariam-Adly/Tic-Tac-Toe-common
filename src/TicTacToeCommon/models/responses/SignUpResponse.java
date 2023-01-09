@@ -13,6 +13,7 @@ import TicTacToeCommon.models.base.RemoteResponse;
  */
 public class SignUpResponse extends RemoteResponse<UserModel> {
 
+    static final long serialVersionUID = 42L;
     /**
      * Default Constructor
      */

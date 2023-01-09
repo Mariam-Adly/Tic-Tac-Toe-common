@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class OnlinePlayersResponse extends RemoteResponse<ArrayList<PlayerModel>> {
 
+    static final long serialVersionUID = 42L;
     public OnlinePlayersResponse() {
     }
 

@@ -9,7 +9,7 @@ import TicTacToeCommon.models.base.RemoteRequest;
  * @since 1.0
  * */
 public class SignUpRequest implements RemoteRequest {
-
+    static final long serialVersionUID = 42L;
     private String userName;
     private String password;
 
@@ -22,6 +22,7 @@ public class SignUpRequest implements RemoteRequest {
      * @param password The requested password.
      * */
     public SignUpRequest(String userName, String password) {
+        
         this.userName = userName;
         this.password = password;
     }

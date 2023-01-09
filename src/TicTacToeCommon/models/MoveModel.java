@@ -1,5 +1,6 @@
 package TicTacToeCommon.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +11,9 @@ import java.util.Date;
  * @since 1.0
  *
  */
-public class MoveModel {
+public class MoveModel implements Serializable{
 
+     static final long serialVersionUID = 42L;
     private String playerId;
     private String gameId;
     private byte spacePosition;

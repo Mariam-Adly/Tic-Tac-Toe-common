@@ -1,7 +1,10 @@
 package TicTacToeCommon.models;
 
-public class PlayerModel {
+import java.io.Serializable;
 
+public class PlayerModel implements Serializable{
+
+    static final long serialVersionUID = 42L;
     private String name;
     private String id;
 

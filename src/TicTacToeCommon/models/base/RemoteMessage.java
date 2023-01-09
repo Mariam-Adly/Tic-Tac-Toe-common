@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class RemoteMessage<Message extends RemoteSendable> implements RemoteSendable {
 
+    static final long serialVersionUID = 42L;
     private Message message;
     private Date sentAt;
     transient private Date receivedAt;
