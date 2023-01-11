@@ -1,23 +1,25 @@
 package TicTacToeCommon.models.requests;
 
+import TicTacToeCommon.models.UserModel;
 import TicTacToeCommon.models.base.RemoteRequest;
 
 public class StartGameRequest implements RemoteRequest {
-   static final long serialVersionUID = 42L;
-    private String playerId;
+
+    static final long serialVersionUID = 42L;
+    private UserModel player;
 
     public StartGameRequest() {
     }
 
-    public StartGameRequest(String playerId) {
-        this.playerId = playerId;
+    public StartGameRequest(UserModel player) {
+        this.player = player;
     }
 
-    public String getPlayerId() {
-        return playerId;
+    public UserModel getPlayer() {
+        return player;
     }
 
-    public void setPlayerId(String playerId) {
-        this.playerId = playerId;
+    public void setPlayer(UserModel playerId) {
+        this.player = playerId;
     }
 }

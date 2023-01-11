@@ -11,13 +11,15 @@ import java.util.Date;
  * @since 1.0
  *
  */
-public class MoveModel implements Serializable{
+public class MoveModel implements Serializable {
 
-     static final long serialVersionUID = 42L;
+    static final long serialVersionUID = 42L;
+
+    private String id;
     private String playerId;
     private String gameId;
     private byte spacePosition;
-    private Date createdAt;
+    private Long createdAt;
 
     /**
      * Default Constructor
@@ -29,6 +31,7 @@ public class MoveModel implements Serializable{
      * Creates a single a move associated with a player's ID, a game's ID, and
      * in a certain space position on the grid.
      *
+     * @param id
      * @param playerId The ID of the player that took the move.
      * @param gameId the ID of the game where this move was taken.
      * @param spacePosition The exact position where the move was taken on the
@@ -36,13 +39,22 @@ public class MoveModel implements Serializable{
      * @param createdAt The exact time this move was taken.
      *
      */
-    public MoveModel(String playerId, String gameId, byte spacePosition, Date createdAt) {
+    public MoveModel(String id, String playerId, String gameId, byte spacePosition, Long createdAt) {
+        this.id = id;
         this.playerId = playerId;
         this.gameId = gameId;
         this.spacePosition = spacePosition;
         this.createdAt = createdAt;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public String getPlayerId() {
         return playerId;
     }
@@ -67,11 +79,11 @@ public class MoveModel implements Serializable{
         this.spacePosition = spacePosition;
     }
 
-    public Date getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 }

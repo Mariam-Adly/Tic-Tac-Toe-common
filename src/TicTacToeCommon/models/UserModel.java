@@ -1,7 +1,6 @@
 package TicTacToeCommon.models;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Represents a user.
@@ -16,7 +15,7 @@ public class UserModel implements Serializable {
     private String id;
     private String name;
     private byte[] image;
-    private Date createdAt;
+    private Long createdAt;
 
     /**
      * Default constructor
@@ -34,7 +33,7 @@ public class UserModel implements Serializable {
      * @param createdAt The exact time this user instance was created in the
      * database.
      */
-    public UserModel(String id, String name, byte[] image, Date createdAt) {
+    public UserModel(String id, String name, byte[] image, Long createdAt) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -65,11 +64,11 @@ public class UserModel implements Serializable {
         this.image = image;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Long createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getCreatedAt() {
+    public Long getCreatedAt() {
         return createdAt;
     }
 
