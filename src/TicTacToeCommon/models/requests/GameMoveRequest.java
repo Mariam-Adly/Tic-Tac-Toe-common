@@ -3,22 +3,22 @@ package TicTacToeCommon.models.requests;
 public class GameMoveRequest extends GameRequest {
 
     static final long serialVersionUID = 42L;
-    private Object move;
+    private Byte move;
 
     public GameMoveRequest() {
 
     }
 
-    public GameMoveRequest(String gameId, Object move) {
+    public GameMoveRequest(String gameId, Byte move) {
         super(gameId);
         this.move = move;
     }
 
-    public Object getMove() {
+    public Byte getMove() {
         return move;
     }
 
-    public void setMove(Object move) {
+    public void setMove(Byte move) {
         this.move = move;
     }
 

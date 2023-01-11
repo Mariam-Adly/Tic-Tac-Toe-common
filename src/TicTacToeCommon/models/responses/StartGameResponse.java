@@ -7,6 +7,7 @@ import TicTacToeCommon.models.base.RemoteResponse;
 public class StartGameResponse extends RemoteResponse<Boolean> {
 
     static final long serialVersionUID = 42L;
+    
     public StartGameResponse() {
     }
 
