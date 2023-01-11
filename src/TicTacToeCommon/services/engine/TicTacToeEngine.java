@@ -45,6 +45,15 @@ public class TicTacToeEngine {
         miniMax = new MiniMax(10);
         board = Board.createStandardBoard(3);
     }
+    
+    public UserModel getPlayer(League league) {
+        switch (league) {
+            case Cross:
+                return crossPlayer;
+            default:
+                return noughtPlayer;
+        }
+    }
 
     public UserModel getPlayer(String playerId) {
         if (Objects.equals(playerId, crossPlayer.getId())) {
