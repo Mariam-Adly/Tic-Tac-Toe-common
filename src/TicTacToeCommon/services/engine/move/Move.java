@@ -25,6 +25,8 @@ public class Move {
 
     public final int getIndex() { return this.piece.getIndex(); }
 
+    public Piece getPiece() { return piece;  }
+
     @Override
     public final int hashCode() { return this.piece.hashCode() * 31; }
 

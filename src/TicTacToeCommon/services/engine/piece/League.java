@@ -3,8 +3,9 @@ package TicTacToeCommon.services.engine.piece;
 import TicTacToeCommon.services.engine.player.Player;
 import TicTacToeCommon.services.engine.player.Player.CrossPlayer;
 import TicTacToeCommon.services.engine.player.Player.NoughtPlayer;
+import java.io.Serializable;
 
-public enum League {
+public enum League implements Serializable {
     Cross {
         @Override
         public boolean isNought() { return false; }
