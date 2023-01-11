@@ -3,6 +3,7 @@ package TicTacToeCommon.models.events;
 import TicTacToeCommon.models.GameModel;
 import TicTacToeCommon.models.MoveModel;
 import TicTacToeCommon.models.PlayerModel;
+import TicTacToeCommon.models.UserModel;
 import TicTacToeCommon.models.base.RemoteEvent;
 import TicTacToeCommon.services.engine.piece.League;
 
@@ -29,14 +30,14 @@ public abstract class GameEvent implements RemoteEvent {
 
         static final long serialVersionUID = 42L;
         private GameModel game;
-        private PlayerModel player;
+        private UserModel player;
         private League league;
 
         public Started() {
             super();
         }
 
-        public Started(String gameId, GameModel game, PlayerModel player, League league) {
+        public Started(String gameId, GameModel game, UserModel player, League league) {
             super(gameId);
             this.game = game;
             this.player = player;
@@ -51,11 +52,11 @@ public abstract class GameEvent implements RemoteEvent {
             this.game = game;
         }
 
-        public PlayerModel getPlayer() {
+        public UserModel getPlayer() {
             return player;
         }
 
-        public void setPlayer(PlayerModel player) {
+        public void setPlayer(UserModel player) {
             this.player = player;
         }
 
@@ -104,6 +105,19 @@ public abstract class GameEvent implements RemoteEvent {
         }
 
         public Withdraw(String gameId) {
+            super(gameId);
+        }
+    }
+    
+    public static class Draw extends GameEvent.Won {
+
+        static final long serialVersionUID = 42L;
+
+        public Draw() {
+            super();
+        }
+
+        public Draw(String gameId) {
             super(gameId);
         }
     }
