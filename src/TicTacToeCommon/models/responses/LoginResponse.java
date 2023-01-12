@@ -1,8 +1,9 @@
 package TicTacToeCommon.models.responses;
 
+import TicTacToeCommon.models.UserModel;
 import TicTacToeCommon.models.base.RemoteResponse;
 
-public class LoginResponse extends RemoteResponse<String> {
+public class LoginResponse extends RemoteResponse<UserModel> {
 
     static final long serialVersionUID = 42L;
     public LoginResponse() {
@@ -12,7 +13,7 @@ public class LoginResponse extends RemoteResponse<String> {
         super(status);
     }
 
-    public LoginResponse(boolean status, String data) {
+    public LoginResponse(boolean status, UserModel data) {
         super(status, data);
     }
 
