@@ -164,7 +164,7 @@ public abstract class GameEvent implements RemoteEvent {
             this.playerId = playerId;
         }
 
-        public Object getMove() {
+        public MoveModel getMove() {
             return move;
         }
 
