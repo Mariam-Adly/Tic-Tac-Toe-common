@@ -8,10 +8,12 @@ import TicTacToeCommon.models.UserModel;
 import TicTacToeCommon.services.engine.board.Board;
 import TicTacToeCommon.services.engine.move.Move;
 import TicTacToeCommon.services.engine.piece.League;
+import TicTacToeCommon.services.engine.player.Player;
 import TicTacToeCommon.services.engine.player.ai.MiniMax;
 import TicTacToeCommon.services.engine.player.ai.TicTacToeAlgorithm;
-import java.security.InvalidParameterException;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -27,6 +29,7 @@ public class TicTacToeEngine {
     private final UserModel noughtPlayer;
     private final Random random;
     private final TicTacToeAlgorithm miniMax;
+    private final List<Move> moves = new LinkedList<>();
     private Board board;
 
     public TicTacToeEngine(UserModel player) {
@@ -81,15 +84,23 @@ public class TicTacToeEngine {
         }
         return null;
     }
+    
+    public Player getCurrentPlayer() {
+        return board.getCurrentPlayer();
+    }
 
-    public GameResult makeMove(String playerId, Byte position) {
+    public List<Move> getMoves() {
+        return moves;
+    }
+    
+    public GameResult makeMove(String playerId, Byte position) throws InvalidMoveException {
         Move move = new Move(board, getLeague(playerId), position);
         return makeMove(move);
     }
 
-    public GameResult makeAIMove(Difficulty difficulty) {
+    public GameResult makeAIMove(Difficulty difficulty) throws InvalidMoveException {
         if (board.isDraw() || board.isWin()) {
-            throw new InvalidParameterException();
+            throw new InvalidMoveException();
         }
         Move move = null;
         switch (difficulty) {
@@ -106,11 +117,12 @@ public class TicTacToeEngine {
         return makeMove(move);
     }
 
-    private GameResult makeMove(Move move) {
+    private GameResult makeMove(Move move) throws InvalidMoveException {
         if (board.isDraw() || board.isWin() || board.getCurrentPlayer().getLeague() != move.getPiece().getLeague()) {
-            throw new InvalidParameterException();
+            throw new InvalidMoveException();
         }
         board = move.execute();
+        moves.add(move);
         if (board.isDraw()) {
             return GameResult.DRAW;
         } else if (board.isWin(League.Cross)) {
@@ -144,7 +156,7 @@ public class TicTacToeEngine {
     }
 
     // Driver code
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidMoveException {
         TicTacToeEngine brain = new TicTacToeEngine(AI);
         System.out.println(brain.board);
         brain.makeAIMove(Difficulty.MEDIUM);
@@ -184,5 +196,9 @@ public class TicTacToeEngine {
         NOUGHT_WINS,
         DRAW,
         ONGOING,
+    }
+    
+    public static class InvalidMoveException extends Exception {
+        
     }
 }
