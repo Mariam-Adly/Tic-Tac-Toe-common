@@ -48,7 +48,7 @@ public class TicTacToeEngine {
         miniMax = new MiniMax(10);
         board = Board.createStandardBoard(3);
     }
-    
+
     public UserModel getPlayer(League league) {
         switch (league) {
             case Cross:
@@ -66,7 +66,7 @@ public class TicTacToeEngine {
         }
         return null;
     }
-    
+
     public UserModel getOtherPlayer(String playerId) {
         if (Objects.equals(playerId, crossPlayer.getId())) {
             return noughtPlayer;
@@ -84,7 +84,7 @@ public class TicTacToeEngine {
         }
         return null;
     }
-    
+
     public Player getCurrentPlayer() {
         return board.getCurrentPlayer();
     }
@@ -92,7 +92,7 @@ public class TicTacToeEngine {
     public List<Move> getMoves() {
         return moves;
     }
-    
+
     public GameResult makeMove(String playerId, Integer position) throws InvalidMoveException {
         Move move = new Move(board, getLeague(playerId), position);
         return makeMove(move);
@@ -123,12 +123,12 @@ public class TicTacToeEngine {
         }
         board = move.execute();
         moves.add(move);
-        if (board.isDraw()) {
-            return GameResult.DRAW;
-        } else if (board.isWin(League.Cross)) {
+        if (board.isWin(League.Cross)) {
             return GameResult.CROSS_WINS;
         } else if (board.isWin(League.Nought)) {
             return GameResult.NOUGHT_WINS;
+        } else if (board.isDraw()) {
+            return GameResult.DRAW;
         } else {
             return GameResult.ONGOING;
         }
@@ -197,8 +197,8 @@ public class TicTacToeEngine {
         DRAW,
         ONGOING,
     }
-    
+
     public static class InvalidMoveException extends Exception {
-        
+
     }
 }
