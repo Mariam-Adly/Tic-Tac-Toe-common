@@ -96,7 +96,7 @@ public abstract class GameEvent implements RemoteEvent {
         }
     }
 
-    public static class Withdraw extends GameEvent.Won {
+    public static class Withdraw extends GameEvent {
 
         static final long serialVersionUID = 42L;
 
@@ -109,7 +109,7 @@ public abstract class GameEvent implements RemoteEvent {
         }
     }
     
-    public static class Draw extends GameEvent.Won {
+    public static class Draw extends GameEvent {
 
         static final long serialVersionUID = 42L;
 

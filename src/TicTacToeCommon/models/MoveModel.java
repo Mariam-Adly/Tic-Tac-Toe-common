@@ -18,7 +18,7 @@ public class MoveModel implements Serializable {
     private String id;
     private String playerId;
     private String gameId;
-    private byte spacePosition;
+    private Integer spacePosition;
     private Long createdAt;
 
     /**
@@ -39,7 +39,7 @@ public class MoveModel implements Serializable {
      * @param createdAt The exact time this move was taken.
      *
      */
-    public MoveModel(String id, String playerId, String gameId, byte spacePosition, Long createdAt) {
+    public MoveModel(String id, String playerId, String gameId, Integer spacePosition, Long createdAt) {
         this.id = id;
         this.playerId = playerId;
         this.gameId = gameId;
@@ -71,11 +71,11 @@ public class MoveModel implements Serializable {
         this.gameId = gameId;
     }
 
-    public byte getSpacePosition() {
+    public Integer getSpacePosition() {
         return spacePosition;
     }
 
-    public void setSpacePosition(byte spacePosition) {
+    public void setSpacePosition(Integer spacePosition) {
         this.spacePosition = spacePosition;
     }
 
