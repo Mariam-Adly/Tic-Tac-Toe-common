@@ -93,7 +93,7 @@ public class TicTacToeEngine {
         return moves;
     }
     
-    public GameResult makeMove(String playerId, Byte position) throws InvalidMoveException {
+    public GameResult makeMove(String playerId, Integer position) throws InvalidMoveException {
         Move move = new Move(board, getLeague(playerId), position);
         return makeMove(move);
     }

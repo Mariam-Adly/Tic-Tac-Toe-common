@@ -43,13 +43,17 @@ public class RemoteMessage<Message extends RemoteSendable> implements RemoteSend
     }
 
     public void writeInto(ObjectOutput output) throws IOException {
-        this.sentAt = new Date();
-        output.writeObject(this);
+        synchronized (output) {
+            this.sentAt = new Date();
+            output.writeObject(this);
+        }
     }
 
     public static RemoteMessage<RemoteSendable> readFrom(ObjectInput input) throws IOException, ClassNotFoundException {
-        RemoteMessage<RemoteSendable> object = (RemoteMessage<RemoteSendable>) input.readObject();
-        object.receivedAt = new Date();
-        return object;
+        synchronized (input) {
+            RemoteMessage<RemoteSendable> object = (RemoteMessage<RemoteSendable>) input.readObject();
+            object.receivedAt = new Date();
+            return object;
+        }
     }
 }
